@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import cv2
 import numpy as np
 from matplotlib import cm
@@ -77,7 +78,7 @@ def draw_boxes(im,
         # cv2.rectangle(im, tuple(box[:2]), tuple(box[2:4]), c,2)
         # cv2.waitKey(0)
         # cv2.imshow('kk', im)
-        cv2.imwrite('/Users/xiaofeng/Code/Github/Chinese-OCR/test/lllll.png',im)
+        cv2.imwrite('/Users/xiaofeng/Code/Github/Chinese-OCR/test/test_result.png',im)
 
     return text_recs, im
 
