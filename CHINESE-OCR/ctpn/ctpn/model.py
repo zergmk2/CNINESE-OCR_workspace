@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 import os
 
@@ -32,7 +33,9 @@ def load_tf_model():
     # sess = tf.Session(config=config)
     sess = tf.Session()
     ckpt = tf.train.get_checkpoint_state(
-        '/Users/xiaofeng/Code/Github/dataset/CHINESE_OCR/ctpn/checkpoints/')
+        './save_model/ctpn_checkpoints/')
+    #ckpt = tf.train.get_checkpoint_state(
+    #    '/Users/xiaofeng/Code/Github/dataset/CHINESE_OCR/ctpn/ctpn_checkpoints/')
     reader = tf.train.NewCheckpointReader(ckpt.model_checkpoint_path)
     var_to_shape_map = reader.get_variable_to_shape_map()
     for key in var_to_shape_map:
@@ -54,8 +57,6 @@ def ctpn(img):
     """
     scale, max_scale = Config.SCALE, Config.MAX_SCALE
     # 对图像进行resize，输出的图像长宽
-    print('original_size',img.shape)
     img, f = resize_im(img, scale=scale, max_scale=max_scale)
-    print('resize',img.shape,f)
     scores, boxes = test_ctpn(sess, net, img)
     return scores, boxes, img
