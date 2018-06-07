@@ -59,14 +59,24 @@ parser.add_argument(
     '--crnn',
     help="path to crnn (to continue training)",
     default=
-    '/Users/xiaofeng/Code/Github/dataset/CHINESE_OCR/crnn_ocr/pretrain-models/netCRNN.pth'
+    './save_model/crnn_ocr/pretrain-models/netCRNN.pth'
 )
+#parser.add_argument(
+#    '--crnn',
+#    help="path to crnn (to continue training)",
+#    default=
+#    '/Users/xiaofeng/Code/Github/dataset/CHINESE_OCR/crnn_ocr/pretrain-models/netCRNN.pth'
+#)
 # parser.add_argument('--crnn', help="path to crnn (to continue training)",default='')
 parser.add_argument('--alphabet', default=alphabet)
 parser.add_argument(
     '--experiment',
     help='Where to store samples and models',
-    default='./save_model')
+    default='./save_model/crnn_ocr/pretrain-models')
+#parser.add_argument(
+#    '--experiment',
+#    help='Where to store samples and models',
+#    default='./save_model')
 parser.add_argument(
     '--displayInterval', type=int, default=50, help='Interval to be displayed')
 parser.add_argument(
