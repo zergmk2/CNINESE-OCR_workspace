@@ -46,7 +46,7 @@ RUN conda install pytorch=0.1.12 -c soumith
 RUN conda install torchvision -c soumith
 
 ADD entrypoint.sh /opt/config/
-#ENTRYPOINT ["/opt/config/entrypoint.sh","make-for-cpu.sh"]
+CMD ["/opt/config/entrypoint.sh","make-for-cpu.sh"]
 
 
 WORKDIR /workspace
