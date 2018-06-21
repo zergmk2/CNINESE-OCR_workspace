@@ -39,7 +39,7 @@ RUN pip install easydict -i https://pypi.tuna.tsinghua.edu.cn/simple/  && \
     pip install matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple/  && \
     pip install -U pillow -i https://pypi.tuna.tsinghua.edu.cn/simple/ && \
     pip install  h5py lmdb mahotas -i https://pypi.tuna.tsinghua.edu.cn/simple/ 
-
+RUN pip install flask
 RUN conda install cuda80 -c soumith
 RUN conda install tensorflow=1.3 
 RUN conda install tensorflow-gpu=1.3
@@ -48,7 +48,7 @@ RUN conda install torchvision -c soumith
 
 ADD entrypoint.sh /opt/config/
 ADD entrypoint.sh /opt/config/
-CMD ["/opt/config/entrypoint.sh","make-for-cpu.sh"]
+CMD ["/opt/config/entrypoint.sh","make.sh"]
 
 
 WORKDIR /workspace
