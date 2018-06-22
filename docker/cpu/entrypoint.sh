@@ -5,7 +5,8 @@
 
 cd /workspace/CHINESE-OCR/ctpn/lib/utils
 sh $1
-cd /workspace
+cd /workspace/CHINESE-OCR
+python helloFlask.py
 
 
 

@@ -27,7 +27,7 @@ IMAGENAME=chinese-ocr_dockerimage
 IMAGETAGCPU=py27_cpu
 IMAGETAGGPU=py27_gpu
 HOSTPORT=8001
-OUTPORT=8001
+OUTPORT=5000
 
 
 ###################################
@@ -318,6 +318,7 @@ echo "主机IP:  $local_ip"
 echo "主机端口号:$HOSTPORT，对外端口号:$OUTPORT"
 echo "# 测试步骤：执行完脚本需要在新命令行执行的命令"
 echo "# 1.cd CHINESE-OCR/"
+echo "# 2.python chineseocr.py /workspace/img/005.jpg 
 
 
 
