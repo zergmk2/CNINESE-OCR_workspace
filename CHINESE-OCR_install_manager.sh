@@ -294,7 +294,7 @@ fi
 
 sudo docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker stop 
 sudo docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker rm
-sudo docker images|grep none|awk '{print $3 }'|xargs docker rmi
+sudo docker images|grep none|awk '{print $3 }'|xargs -r docker rmi
 
 
 echo
@@ -334,9 +334,9 @@ then
 fi
 if [ "$CHIPMODE"x = "gpu"x ];
 then
-	sudo docker run --runtime=nvidia -it --volume ${VOLUMEPATH}:/workspace -p $HOSTPORT:$PORT $IMAGENAME:$IMAGETAGGPU
+	sudo docker run --runtime=nvidia -it --volume ${VOLUMEPATH}:/workspace -p $HOSTPORT:$OUTPORT $IMAGENAME:$IMAGETAGGPU
 	#sudo nvidia-docker run -it --volume ${VOLUMEPATH}:/workspace -p $HOSTPORT:$PORT $IMAGENAME:$IMAGETAGGPU
-	sudo docker run --runtime=nvidia -it --volume ${VOLUMEPATH}:/workspace -p $HOSTPORT:$PORT $IMAGENAME:$IMAGETAGGPU /bin/bash
+	sudo docker run --runtime=nvidia -it --volume ${VOLUMEPATH}:/workspace -p $HOSTPORT:$OUTPORT $IMAGENAME:$IMAGETAGGPU /bin/bash
 	#sudo nvidia-docker run -it --volume ${VOLUMEPATH}:/workspace -p $HOSTPORT:$PORT $IMAGENAME:$IMAGETAGGPU /bin/bash
 	echo
 fi
