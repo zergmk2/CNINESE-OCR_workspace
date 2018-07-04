@@ -1,0 +1,15 @@
+CHINESE-OCR/demo.py
+CHINESE-OCR/test/*
+CHINESE-OCR/ctpn/lib/*
+CHINESE-OCR/ctpn/logs/*
+CHINESE-OCR/ocr/model_tf.py
+CHINESE-OCR/save_model/*
+bak/*
+docker/cpu/Anaconda2-5.1.0-Linux-x86_64.sh
+docker/gpu/Anaconda2-5.1.0-Linux-x86_64.sh
+ctpn_data/*
+CHINESE-OCR/ctpn/prepare_training_data/TEXTVOC/*
+
+
+
+

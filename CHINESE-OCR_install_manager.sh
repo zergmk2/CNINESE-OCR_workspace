@@ -30,20 +30,6 @@ HOSTPORT=8001
 OUTPORT=5000
 
 
-###################################
-##	地址：显示当前IP等信息，询问是否更改
-###################################
-
-
-
-###################################
-##	用户：是否切换或创建用户，是则创建并切换到新用户
-###################################
-#echo -n "Enter your name:"
-#read name
-#su - $name <<LOGEOF
-#pwd;
-#LOGEOF
 
 echo "####################################################"
 echo "##						##"
@@ -140,36 +126,8 @@ then
 fi
 
 
-#echo "####################################################################"
-#echo "##								##"
-#echo "##	何种方式运行docker镜像(暂时可以任选一个参数)		##"
-#echo "		如：run start stop kill retstart			##"
-#echo "##								##"
-#echo "####################################################################"
-#FLAGDKMOD=1
-#while [ $FLAGDKMOD -eq 1 ]
-#do
-#	echo "Docker MODE is required:run start stop restart kill delete."
-#	read dockermode
-#	if
-#	[ "$dockermode"x = "run"x -o "$dockermode"x = "start"x -o "$dockermode"x = "stop"x -o "$dockermode"x = "restart"x -o  "$dockermode"x = "kill"x -o "$dockermode"x = "delete"x ];
-#	then
-# 	     	DOCKERMODE=$dockermode
-#		FLAGDKMOD=0
-#	else
-#		FLAGDKMOD=1
-#	fi
-#done
 
-#echo $DOCKERMODE
 
-echo "####################################################################"
-echo "##								##"
-echo "##		更新源：检测源，并更新源				##"
-echo "##								##"
-echo "####################################################################"
-#方式1 curl github？
-#方式2 粘贴代码？
 
 
 echo "####################################################################"
@@ -235,14 +193,6 @@ then
 	# Test nvidia-smi with the latest official CUDA image
 	docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 
-	#curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-  	#sudo apt-key add -
-	#distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-	#curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-  	#sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-	#sudo apt-get update
-	# Test nvidia-smi 验证是否安装成功
-	#sudo nvidia-docker run --rm nvidia/cuda nvidia-smi
 	if [ $? -eq 0 ];
 	then
 		echo "Nvidia-Docker is Installed."
@@ -292,9 +242,9 @@ fi
 
 #描述：删除顽固的None镜像
 
-sudo docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker stop 
-sudo docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker rm
-sudo docker images|grep none|awk '{print $3 }'|xargs -r docker rmi
+##sudo docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker stop 
+##sudo docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker rm
+##sudo docker images|grep none|awk '{print $3 }'|xargs -r docker rmi
 
 
 echo
